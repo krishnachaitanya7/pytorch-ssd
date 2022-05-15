@@ -86,7 +86,7 @@ parser.add_argument("--t-max", default=100, type=float, help="T_max value for Co
 
 # Train params
 parser.add_argument("--batch-size", default=4, type=int, help="Batch size for training")
-parser.add_argument("--num-epochs", "--epochs", default=100, type=int, help="the number epochs")
+parser.add_argument("--num-epochs", "--epochs", default=10000, type=int, help="the number epochs")
 parser.add_argument("--num-workers", "--workers", default=2, type=int, help="Number of workers used in dataloading")
 parser.add_argument("--validation-epochs", default=1, type=int, help="the number epochs between running validation")
 parser.add_argument("--debug-steps", default=10, type=int, help="Set the debug log output frequency.")
