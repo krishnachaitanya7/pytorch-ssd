@@ -16,6 +16,19 @@
                 "--data=${env:HOME}/Downloads/clean_dataset",
                 "--model-dir=${workspaceRoot}/models"
             ]
-        }
+        },
+        {
+            "name": "Export Model",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/onnx_export.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--labels=${env:HOME}/Downloads/clean_dataset/labels.txt",
+                "--input=${workspaceRoot}/models/mb1-ssd.pth",
+                "--output=${workspaceRoot}/models/mb1-ssd.onnx"
+            ]
+        },
     ]
 }
