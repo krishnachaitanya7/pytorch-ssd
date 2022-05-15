@@ -26,8 +26,8 @@
             "justMyCode": true,
             "args": [
                 "--labels=${env:HOME}/Downloads/clean_dataset/labels.txt",
-                "--input=${workspaceRoot}/models/mb1-ssd.pth",
-                "--output=${workspaceRoot}/models/mb1-ssd.onnx"
+                "--input=${workspaceRoot}/models/mb1_ssd.pth",
+                "--output=${workspaceRoot}/models/mb1_ssd.onnx"
             ]
         },
     ]
