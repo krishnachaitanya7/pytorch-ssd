@@ -5,12 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Training",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "${workspaceRoot}/train_ssd.py",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": true,
+            "args": [
+                "--dataset-type=voc",
+                "--data=${env:HOME}/Downloads/clean_dataset",
+                "--model-dir=${workspaceRoot}/models"
+            ]
         }
     ]
 }
