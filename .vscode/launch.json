@@ -14,7 +14,8 @@
             "args": [
                 "--dataset-type=voc",
                 "--data=${env:HOME}/Downloads/clean_dataset",
-                "--model-dir=${workspaceRoot}/models"
+                "--model-dir=${workspaceRoot}/models",
+                "--pretrained-ssd=${workspaceRoot}/models/mobilenet-v1-ssd-mp-0_675.pth",
             ]
         },
         {
@@ -25,7 +26,7 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "--labels=${env:HOME}/Downloads/clean_dataset/labels.txt",
+                "--labels=${workspaceRoot}/models/labels.txt",
                 "--input=${workspaceRoot}/models/mb1_ssd.pth",
                 "--output=${workspaceRoot}/models/mb1_ssd.onnx"
             ]
