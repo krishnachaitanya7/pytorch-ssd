@@ -13,6 +13,8 @@ import numpy as np
 import logging
 import sys
 from vision.ssd.mobilenet_v2_ssd_lite import create_mobilenetv2_ssd_lite, create_mobilenetv2_ssd_lite_predictor
+import cv2
+from time import sleep
 
 
 parser = argparse.ArgumentParser(description="SSD Evaluation on VOC Dataset.")
@@ -177,6 +179,22 @@ if __name__ == "__main__":
         print("Load Image: {:4f} seconds.".format(timer.end("Load Image")))
         timer.start("Predict")
         boxes, labels, probs = predictor.predict(image)
+        # Draw the bounding boxes on the image.
+        for each_box in boxes:
+            x1, y1, x2, y2 = (
+                int(np.round(each_box[0].cpu().numpy())),
+                int(np.round(each_box[1].cpu().numpy())),
+                int(np.round(each_box[2].cpu().numpy())),
+                int(np.round(each_box[3].cpu().numpy())),
+            )
+            cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        cv2.imshow("image", image)
+        keyCode = cv2.waitKey(1) & 0xFF
+        if keyCode == 27 or keyCode == ord("q"):
+            # close all windows
+            cv2.destroyAllWindows()
+            break
+        sleep(1)
         print("Prediction: {:4f} seconds.".format(timer.end("Predict")))
         indexes = torch.ones(labels.size(0), 1, dtype=torch.float32) * i
         results.append(
