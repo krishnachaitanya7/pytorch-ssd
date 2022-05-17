@@ -194,7 +194,7 @@ if __name__ == "__main__":
             # close all windows
             cv2.destroyAllWindows()
             break
-        sleep(1)
+        sleep(2)
         print("Prediction: {:4f} seconds.".format(timer.end("Predict")))
         indexes = torch.ones(labels.size(0), 1, dtype=torch.float32) * i
         results.append(
