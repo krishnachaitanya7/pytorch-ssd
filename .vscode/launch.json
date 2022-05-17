@@ -31,5 +31,18 @@
                 "--output=${workspaceRoot}/models/mb1_ssd.onnx"
             ]
         },
+        {
+            "name": "Eval Model",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/eval_ssd.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--dataset=${env:HOME}/Downloads/clean_dataset",
+                "--label_file=${workspaceRoot}/models/labels.txt",
+                "--trained_model=${workspaceRoot}/models/mb1_ssd.pth"
+            ]
+        },
     ]
 }
