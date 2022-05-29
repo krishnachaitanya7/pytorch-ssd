@@ -138,12 +138,10 @@ def train(loader, net, criterion, optimizer, device, debug_steps=100, epoch=-1):
                 + f"Avg Regression Loss {avg_reg_loss:.4f}, "
                 + f"Avg Classification Loss: {avg_clf_loss:.4f}"
             )
-            wandb.log(
-                {"avg_loss": avg_loss, "avg_regression_loss": avg_reg_loss, "avg_classification_loss": avg_clf_loss}
-            )
             running_loss = 0.0
             running_regression_loss = 0.0
             running_classification_loss = 0.0
+    wandb.log({"avg_loss": avg_loss, "avg_regression_loss": avg_reg_loss, "avg_classification_loss": avg_clf_loss})
 
 
 def test(loader, net, criterion, device):
