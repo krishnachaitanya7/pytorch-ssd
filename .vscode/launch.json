@@ -19,6 +19,17 @@
             ]
         },
         {
+            "name": "Run Python File",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/find_best_model.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--model-dir=${workspaceRoot}/models"
+            ]
+        },
+        {
             "name": "Export Model",
             "type": "python",
             "request": "launch",

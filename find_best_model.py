@@ -11,6 +11,9 @@ if __name__ == "__main__":
     models_folder = args.checkpoint_folder
     # recursively find all the files ending with .pth in the folder
     files = glob.glob(models_folder + "/*.pth", recursive=True)
+    # remove element "/home/student/PycharmProjects/pytorch-ssd/models/mobilenet-v1-ssd-mp-0_675.pth"
+    # from the list
+    files = [f for f in files if "mobilenet-v1-ssd-mp-0_675.pth" not in f]
     # get the loss in the file of the format mb1-ssd-Epoch-XX-Loss-XX.pth
     loss_regex = re.compile(r"mb1-ssd-Epoch-\d+-Loss-(\d+\.\d+).pth")
     # get the epoch number in the file of the format mb1-ssd-Epoch-XX-Loss-XX.pth
